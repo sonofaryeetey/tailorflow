@@ -77,11 +77,31 @@ export default function EditItemPage({ params }) {
             const { data, error: updateError } = await supabase
                 .from('items')
                 .update({
+                    bust: updatedItem.bust,
+                    chest: updatedItem.chest,
+                    shoulder: updatedItem.shoulder,
+                    arm_hole: updatedItem.arm_hole,
+                    sleeve_length: updatedItem.sleeve_length,
+                    sleeve_width: updatedItem.sleeve_width,
+                    collar: updatedItem.collar,
+                    neckline: updatedItem.neckline,
                     waist: updatedItem.waist,
-                    sleeve: updatedItem.sleeve,
-                    leg_length: updatedItem.leg_length,
+                    skirt_waist: updatedItem.skirt_waist,
+                    trouser_waist: updatedItem.trouser_waist,
                     hip: updatedItem.hip,
-                    thigh: updatedItem.thigh,
+                    seat: updatedItem.seat,
+                    crotch: updatedItem.crotch,
+                    bottom: updatedItem.bottom,
+                    cuff: updatedItem.cuff,
+                    shirt_length: updatedItem.shirt_length,
+                    blouse_length: updatedItem.blouse_length,
+                    skirt_length: updatedItem.skirt_length,
+                    trouser_length: updatedItem.trouser_length,
+                    shorts_length: updatedItem.shorts_length,
+                    jacket_length: updatedItem.jacket_length,
+                    kaftan_dress_length: updatedItem.kaftan_dress_length,
+                    dress: updatedItem.dress,
+                    jumpsuit: updatedItem.jumpsuit,
                     extra_details: updatedItem.extra_details,
                     image_url: finalImageUrl
                 })
@@ -119,7 +139,7 @@ export default function EditItemPage({ params }) {
     )
 
     return (
-        <main style={{ minHeight: '100vh', padding: '2rem 0' }}>
+        <main style={{ minHeight: '100vh', padding: '4rem 0 2rem' }}>
             <HamburgerMenu />
             <div className="container mb-4">
                 <Link href={`/clients/${id}`} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">

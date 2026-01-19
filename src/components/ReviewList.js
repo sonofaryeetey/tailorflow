@@ -40,12 +40,19 @@ export default function ReviewList({ clientData, items, onBack, onSave, onEditIt
                         {/* Details */}
                         <div className="flex-1">
                             <h4 style={{ fontSize: '1rem', marginBottom: '0.25rem' }}>Item #{index + 1}</h4>
-                            <p className="text-sm text-zinc-400 mb-0 line-clamp-2">
+                            <p className="text-sm text-zinc-400 mb-2 line-clamp-1">
                                 {item.extra_details || 'No additional details'}
                             </p>
-                            <div className="text-xs text-zinc-500 mt-1">
-                                {item.waist && `Waist: ${item.waist} `}
-                                {item.sleeve && `Sleeve: ${item.sleeve}`}
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 8px', fontSize: '0.75rem' }}>
+                                {Object.entries(item).map(([key, value]) => {
+                                    if (!value || key === 'image_url' || key === 'image_file' || key === 'extra_details') return null
+                                    const label = key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+                                    return (
+                                        <div key={key} style={{ background: 'rgba(203, 161, 110, 0.1)', padding: '2px 6px', borderRadius: '4px', border: '1px solid rgba(203, 161, 110, 0.2)' }}>
+                                            <span style={{ color: '#a1a1aa' }}>{label}:</span> <span style={{ color: 'var(--primary)', fontWeight: 500 }}>{value}</span>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
 

@@ -94,7 +94,7 @@ export default function OrderDetailPage({ params }) {
     }
 
     return (
-        <div className="container" style={{ padding: '1.5rem 1rem', maxWidth: '600px' }}>
+        <div className="container" style={{ padding: '3.5rem 1rem 1.5rem', maxWidth: '600px' }}>
             <HamburgerMenu />
 
             {/* Header / Back */}
@@ -175,38 +175,73 @@ export default function OrderDetailPage({ params }) {
                 padding: '16px',
                 marginBottom: '1rem'
             }}>
-                <h2 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1rem' }}>Measurements</h2>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                    {order.waist && (
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9375rem' }}>
-                            <span style={{ color: '#a1a1aa' }}>Waist</span>
-                            <span style={{ color: '#ededed', fontWeight: 500 }}>{order.waist}</span>
-                        </div>
-                    )}
-                    {order.hip && (
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9375rem' }}>
-                            <span style={{ color: '#a1a1aa' }}>Hip</span>
-                            <span style={{ color: '#ededed', fontWeight: 500 }}>{order.hip}</span>
-                        </div>
-                    )}
-                    {order.thigh && (
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9375rem' }}>
-                            <span style={{ color: '#a1a1aa' }}>Thigh</span>
-                            <span style={{ color: '#ededed', fontWeight: 500 }}>{order.thigh}</span>
-                        </div>
-                    )}
-                    {order.leg_length && (
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9375rem' }}>
-                            <span style={{ color: '#a1a1aa' }}>Leg Length</span>
-                            <span style={{ color: '#ededed', fontWeight: 500 }}>{order.leg_length}</span>
-                        </div>
-                    )}
-                    {order.sleeve && (
-                        <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9375rem' }}>
-                            <span style={{ color: '#a1a1aa' }}>Sleeve</span>
-                            <span style={{ color: '#ededed', fontWeight: 500 }}>{order.sleeve}</span>
-                        </div>
-                    )}
+                <h2 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '1.25rem' }}>Measurements</h2>
+
+                {/* Upper Body */}
+                <div style={{ marginBottom: '1.25rem' }}>
+                    <h3 style={{ fontSize: '0.8125rem', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Upper Body</h3>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem 1.5rem' }}>
+                        {[
+                            { label: 'Bust', key: 'bust' },
+                            { label: 'Chest', key: 'chest' },
+                            { label: 'Shoulder', key: 'shoulder' },
+                            { label: 'Arm Hole', key: 'arm_hole' },
+                            { label: 'Sleeve Length', key: 'sleeve_length' },
+                            { label: 'Sleeve Width', key: 'sleeve_width' },
+                            { label: 'Collar', key: 'collar' },
+                            { label: 'Neckline', key: 'neckline' },
+                        ].map(f => order[f.key] && (
+                            <div key={f.key} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem', borderBottom: '1px solid rgba(63, 63, 70, 0.3)', paddingBottom: '4px' }}>
+                                <span style={{ color: '#a1a1aa' }}>{f.label}</span>
+                                <span style={{ color: '#ededed', fontWeight: 500 }}>{order[f.key]}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Lower Body */}
+                <div style={{ marginBottom: '1.25rem' }}>
+                    <h3 style={{ fontSize: '0.8125rem', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Lower Body</h3>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem 1.5rem' }}>
+                        {[
+                            { label: 'Waist', key: 'waist' },
+                            { label: 'Skirt Waist', key: 'skirt_waist' },
+                            { label: 'Trouser Waist', key: 'trouser_waist' },
+                            { label: 'Hip', key: 'hip' },
+                            { label: 'Seat', key: 'seat' },
+                            { label: 'Crotch', key: 'crotch' },
+                            { label: 'Bottom', key: 'bottom' },
+                            { label: 'Cuff', key: 'cuff' },
+                        ].map(f => order[f.key] && (
+                            <div key={f.key} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem', borderBottom: '1px solid rgba(63, 63, 70, 0.3)', paddingBottom: '4px' }}>
+                                <span style={{ color: '#a1a1aa' }}>{f.label}</span>
+                                <span style={{ color: '#ededed', fontWeight: 500 }}>{order[f.key]}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Lengths & Full Body */}
+                <div style={{ marginBottom: '0.5rem' }}>
+                    <h3 style={{ fontSize: '0.8125rem', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.75rem' }}>Lengths & Full Body</h3>
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem 1.5rem' }}>
+                        {[
+                            { label: 'Shirt Length', key: 'shirt_length' },
+                            { label: 'Blouse Length', key: 'blouse_length' },
+                            { label: 'Skirt Length', key: 'skirt_length' },
+                            { label: 'Trouser Length', key: 'trouser_length' },
+                            { label: 'Shorts Length', key: 'shorts_length' },
+                            { label: 'Jacket Length', key: 'jacket_length' },
+                            { label: 'Kaftan Length', key: 'kaftan_dress_length' },
+                            { label: 'Dress', key: 'dress' },
+                            { label: 'Jumpsuit', key: 'jumpsuit' },
+                        ].map(f => order[f.key] && (
+                            <div key={f.key} style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.875rem', borderBottom: '1px solid rgba(63, 63, 70, 0.3)', paddingBottom: '4px' }}>
+                                <span style={{ color: '#a1a1aa' }}>{f.label}</span>
+                                <span style={{ color: '#ededed', fontWeight: 500 }}>{order[f.key]}</span>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
@@ -216,7 +251,8 @@ export default function OrderDetailPage({ params }) {
                     background: 'var(--surface)',
                     border: '1px solid rgba(63, 63, 70, 0.5)',
                     borderRadius: '8px',
-                    padding: '16px'
+                    padding: '16px',
+                    marginBottom: '3rem'
                 }}>
                     <h2 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '0.75rem' }}>Additional Notes</h2>
                     <p style={{ color: '#d4d4d8', fontSize: '0.9375rem', lineHeight: '1.6', margin: 0 }}>
@@ -225,6 +261,7 @@ export default function OrderDetailPage({ params }) {
                 </div>
             )}
 
+            <div style={{ paddingBottom: '2rem' }}></div>
         </div>
     )
 }

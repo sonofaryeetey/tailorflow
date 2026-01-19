@@ -120,7 +120,7 @@ export default function ClientDetailsPage({ params }) {
     }
 
     return (
-        <div className="container" style={{ padding: '1.5rem 1rem' }}>
+        <div className="container" style={{ padding: '3.5rem 1rem 2rem' }}>
             <HamburgerMenu />
 
             {/* Header / Back */}

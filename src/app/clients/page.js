@@ -46,7 +46,7 @@ export default function ClientsPage() {
     }
 
     return (
-        <div className="container" style={{ padding: '2rem 1rem' }}>
+        <div className="container" style={{ padding: '3.5rem 1rem 2rem' }}>
             <HamburgerMenu />
             <div className="flex items-center gap-4 mb-8">
                 <Link href="/" className="btn-outline flex items-center justify-center" style={{ width: '40px', height: '40px', padding: 0 }}>

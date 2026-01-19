@@ -50,7 +50,7 @@ export default function AddOrderPage({ params }) {
     )
 
     return (
-        <main style={{ minHeight: '100vh', padding: '2rem 0' }}>
+        <main style={{ minHeight: '100vh', padding: '4rem 0 2rem' }}>
             <HamburgerMenu />
             <div className="container mb-4">
                 <Link href={`/clients/${id}`} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
