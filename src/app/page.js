@@ -14,8 +14,20 @@ export default function Home() {
       padding: '2rem'
     }}>
       <div className="animate-fade-in" style={{ textAlign: 'center', maxWidth: '600px', width: '100%' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+          <img
+            src="/logo.png"
+            alt="TailorFlow Logo"
+            style={{
+              width: '300px',
+              height: '300px',
+              margin: '0 auto 1.5rem',
+              display: 'block'
+            }}
+          />
+        </div>
         <h1 style={{
-          fontSize: '3.5rem',
+          fontSize: '1.5rem',
           marginBottom: '0.5rem',
           background: 'linear-gradient(to right, #cba16e, #e0b47e)',
           WebkitBackgroundClip: 'text',
