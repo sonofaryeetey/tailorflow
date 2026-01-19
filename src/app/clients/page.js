@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { supabase } from '../../lib/supabaseClient'
 import Link from 'next/link'
 import { User, MapPin, Phone, ChevronLeft, Search } from 'lucide-react'
+import HamburgerMenu from '@/components/HamburgerMenu'
 
 export default function ClientsPage() {
     const [clients, setClients] = useState([])
@@ -18,11 +19,8 @@ export default function ClientsPage() {
         try {
             const { data, error } = await supabase
                 .from('clients')
-                .select(`
-          *,
-          items (count)
-        `)
-                .order('created_at', { ascending: false })
+                .select('*')
+                .order('full_name')
 
             if (error) throw error
             setClients(data || [])
@@ -35,11 +33,21 @@ export default function ClientsPage() {
 
     const filteredClients = clients.filter(client =>
         client.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        client.location.toLowerCase().includes(searchTerm.toLowerCase())
+        client.phone?.includes(searchTerm)
     )
+
+    if (loading) {
+        return (
+            <div className="container py-12 text-center">
+                <HamburgerMenu />
+                <p className="text-zinc-400">Loading clients...</p>
+            </div>
+        )
+    }
 
     return (
         <div className="container" style={{ padding: '2rem 1rem' }}>
+            <HamburgerMenu />
             <div className="flex items-center gap-4 mb-8">
                 <Link href="/" className="btn-outline flex items-center justify-center" style={{ width: '40px', height: '40px', padding: 0 }}>
                     <ChevronLeft size={24} />

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { supabase } from '../../../lib/supabaseClient'
 import Link from 'next/link'
 import { ArrowLeft, User, Phone, MapPin, Ruler, Pencil, Trash2 } from 'lucide-react'
+import HamburgerMenu from '@/components/HamburgerMenu'
 
 export default function ClientDetailsPage({ params }) {
     // Unwrap params using React.use()
@@ -100,6 +101,7 @@ export default function ClientDetailsPage({ params }) {
     if (loading) {
         return (
             <div className="container py-12 text-center">
+                <HamburgerMenu />
                 <p className="text-zinc-400">Loading details...</p>
             </div>
         )
@@ -108,6 +110,7 @@ export default function ClientDetailsPage({ params }) {
     if (!client) {
         return (
             <div className="container py-12 text-center">
+                <HamburgerMenu />
                 <p className="text-red-400">Client not found.</p>
                 <Link href="/clients" className="btn-outline mt-4 inline-block">
                     Back to Clients
@@ -118,6 +121,7 @@ export default function ClientDetailsPage({ params }) {
 
     return (
         <div className="container" style={{ padding: '1.5rem 1rem' }}>
+            <HamburgerMenu />
 
             {/* Header / Back */}
             <div style={{ marginBottom: '1.5rem' }}>

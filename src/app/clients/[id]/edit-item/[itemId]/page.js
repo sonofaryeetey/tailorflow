@@ -6,6 +6,7 @@ import { supabase } from '../../../../../lib/supabaseClient'
 import ItemForm from '@/components/ItemForm'
 import { ArrowLeft } from 'lucide-react'
 import Link from 'next/link'
+import HamburgerMenu from '@/components/HamburgerMenu'
 import imageCompression from 'browser-image-compression'
 
 export default function EditItemPage({ params }) {
@@ -104,11 +105,22 @@ export default function EditItemPage({ params }) {
         }
     }
 
-    if (loading) return <div className="container py-12 text-center text-zinc-400">Loading...</div>
-    if (!client || !item) return <div className="container py-12 text-center text-red-400">Item not found</div>
+    if (loading) return (
+        <div className="container py-12 text-center text-zinc-400">
+            <HamburgerMenu />
+            Loading...
+        </div>
+    )
+    if (!client || !item) return (
+        <div className="container py-12 text-center text-red-400">
+            <HamburgerMenu />
+            Item not found
+        </div>
+    )
 
     return (
         <main style={{ minHeight: '100vh', padding: '2rem 0' }}>
+            <HamburgerMenu />
             <div className="container mb-4">
                 <Link href={`/clients/${id}`} className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
                     <ArrowLeft size={20} />

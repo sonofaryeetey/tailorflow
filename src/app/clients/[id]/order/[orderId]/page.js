@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { supabase } from '../../../../../lib/supabaseClient'
 import Link from 'next/link'
 import { ArrowLeft, Pencil, Trash2 } from 'lucide-react'
+import HamburgerMenu from '@/components/HamburgerMenu'
 
 export default function OrderDetailPage({ params }) {
     const { id: clientId, orderId } = use(params)
@@ -74,6 +75,7 @@ export default function OrderDetailPage({ params }) {
     if (loading) {
         return (
             <div className="container" style={{ padding: '1.5rem 1rem', textAlign: 'center', paddingTop: '3rem' }}>
+                <HamburgerMenu />
                 <p style={{ color: '#a1a1aa' }}>Loading order details...</p>
             </div>
         )
@@ -82,6 +84,7 @@ export default function OrderDetailPage({ params }) {
     if (!order) {
         return (
             <div className="container" style={{ padding: '1.5rem 1rem', textAlign: 'center', paddingTop: '3rem' }}>
+                <HamburgerMenu />
                 <p style={{ color: '#f87171' }}>Order not found.</p>
                 <Link href={`/clients/${clientId}`} className="btn-outline" style={{ marginTop: '1rem', display: 'inline-block' }}>
                     Back to Client
@@ -92,6 +95,7 @@ export default function OrderDetailPage({ params }) {
 
     return (
         <div className="container" style={{ padding: '1.5rem 1rem', maxWidth: '600px' }}>
+            <HamburgerMenu />
 
             {/* Header / Back */}
             <div style={{ marginBottom: '1.5rem' }}>

@@ -26,7 +26,7 @@ export default function Home() {
             }}
           />
         </div>
-        <h1 style={{
+        {/* <h1 style={{
           fontSize: '1.5rem',
           marginBottom: '0.5rem',
           background: 'linear-gradient(to right, #cba16e, #e0b47e)',
@@ -34,7 +34,7 @@ export default function Home() {
           WebkitTextFillColor: 'transparent'
         }}>
           TailorFlow
-        </h1>
+        </h1> */}
         <p style={{ fontSize: '1.2rem', marginBottom: '4rem', color: '#a1a1aa' }}>
           Premium Bespoke Tailoring Management
         </p>
